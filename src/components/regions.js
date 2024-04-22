@@ -1,0 +1,30 @@
+const regionsData = [
+    { id: 1, name: 'Vinnytsia Oblast' },
+    { id: 2, name: 'Volyn Oblast' },
+    { id: 3, name: 'Dnipropetrovsk Oblast' },
+    { id: 4, name: 'Donetsk Oblast' },
+    { id: 5, name: 'Zhytomyr Oblast' },
+    { id: 6, name: 'Zakarpattia Oblast' },
+    { id: 7, name: 'Zaporizhzhia Oblast' },
+    { id: 8, name: 'Ivano-Frankivsk Oblast' },
+    { id: 9, name: 'Kyiv Oblast' },
+    { id: 10, name: 'Kirovohrad Oblast' },
+    { id: 11, name: 'Luhansk Oblast' },
+    { id: 12, name: 'Lviv Oblast' },
+    { id: 13, name: 'Mykolaiv Oblast' },
+    { id: 14, name: 'Odessa Oblast' },
+    { id: 15, name: 'Poltava Oblast' },
+    { id: 16, name: 'Rivne Oblast' },
+    { id: 17, name: 'Sumy Oblast' },
+    { id: 18, name: 'Ternopil Oblast' },
+    { id: 19, name: 'Kharkiv Oblast' },
+    { id: 20, name: 'Kherson Oblast' },
+    { id: 21, name: 'Khmelnytskyi Oblast' },
+    { id: 22, name: 'Cherkasy Oblast' },
+    { id: 23, name: 'Chernivtsi Oblast' },
+    { id: 24, name: 'Chernihiv Oblast' },
+    { id: 25, name: 'Crimea' },
+  ];
+  
+  export default regionsData;
+  

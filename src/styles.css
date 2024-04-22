@@ -1,0 +1,142 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #F2E7D1; 
+}
+  
+.signup-header {
+    background-color: #662E29;
+    color: #F2E7D1;
+    height: 100px;
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+    padding-left: 80px; 
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+}
+  
+
+.header-title {
+    font-family: 'Roboto Slab';
+    display: flex;
+    gap: 10px; 
+}
+
+.light-font {
+    font-weight: 300; 
+}
+
+.semibold-font {
+    font-weight: 600; 
+}
+
+.create-account-box {
+    border: 10px solid #614D42;
+    background-color: #F2E7D1;
+    width: 66%;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 40px;
+}
+
+.create-account-title {
+    color: #614D42;
+    font-family: 'Roboto Slab', serif;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+.form-fields {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    text-align: left;
+}
+
+.field-label {
+    color: #614D42;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: left; /* Align field labels to the left */
+    margin-left: 10px;
+}
+
+.form-control {
+    border: 3px solid rgba(97, 77, 66, 0.75); /* Field stroke with 75% opacity */
+    background-color: #D9D7BF;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box; 
+    border-radius: 30px;
+    color: rgba(97, 77, 66); 
+    font-family: 'Roboto Slab', serif;
+    font-weight: 500;
+    font-size:15px;
+}
+
+.form-control::placeholder, select#city option, input[type="date"]::placeholder {
+    color: rgba(97, 77, 66, 0.6); 
+    font-family: 'Roboto Slab', serif;
+    font-weight: 500;
+    font-size:15px;
+}
+
+.submit-button {
+    width: 50%;
+    padding: 10px;
+    margin: 30px auto;
+    background-color: #614D42;
+    color: #D9D7BF;
+    border: none;
+    border-radius: 30px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;    
+    cursor: pointer;
+    font-size: 20px;
+}
+  
+.submit-button:hover {
+    background-color: #401D18; /* Change color on hover if needed */
+}
+
+.sign-in-link {
+    text-align: center;
+    font-family: 'Roboto Serif', serif;
+    font-size: 20px;
+    color: #614D42;
+}
+  
+.sign-in-text {
+    font-weight: 500;
+}
+  
+.sign-in-text:hover {
+    color: #401D18; /* Change color on hover if needed */
+}
+
+.separator {
+    border: none;
+    border-top: 1px solid #614D42; /* Color of the separator line */
+    margin: 10px 200px; /* Adjust margin as needed */
+}
+  
+.copyright-text {
+    margin-top: 10px; 
+    font-family: 'Roboto Serif', serif;
+    font-size: 20px;
+    color: #614D42;
+    font-weight: 400;
+  }
+  
