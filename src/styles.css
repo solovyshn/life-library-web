@@ -10,12 +10,15 @@ body {
     color: #F2E7D1;
     height: 100px;
     display: flex;
-    justify-content: flex-start; 
+    justify-content: space-between; 
     align-items: center;
     padding-left: 80px; 
+    width: 100%;
+    position: fixed;
 }
 
 .container {
+    padding-top: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -93,7 +96,7 @@ body {
     font-size:15px;
 }
 
-.submit-button {
+.create-submit-button {
     width: 50%;
     padding: 10px;
     margin: 30px auto;
@@ -101,13 +104,13 @@ body {
     color: #D9D7BF;
     border: none;
     border-radius: 30px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Serif', serif;
     font-weight: 500;    
     cursor: pointer;
     font-size: 20px;
 }
   
-.submit-button:hover {
+.create-submit-button:hover {
     background-color: #401D18; /* Change color on hover if needed */
 }
 
@@ -138,5 +141,169 @@ body {
     font-size: 20px;
     color: #614D42;
     font-weight: 400;
-  }
+}
+
+.error-message {
+    color: red; /* Text color for error messages */
+    font-size: 0.9rem; /* Font size of error messages */
+    margin-top: 5px; /* Spacing above the error message */
+}
+
+.signin-box {
+    border: 10px solid #614D42;
+    background-color: #F2E7D1;
+    width: 33%;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 40px;
+}
+
+.signform-fields {
+    gap: 15px;
+    text-align: left;
+}
+
+.signform-group {
+    margin-top: 10px;
+}
+
+.signin-submit-button {
+    width: 100%;
+    padding: 10px;
+    margin: 30px auto;
+    background-color: #614D42;
+    color: #D9D7BF;
+    border: none;
+    border-radius: 30px;
+    font-family: 'Roboto Serif', serif;
+    font-weight: 500;    
+    cursor: pointer;
+    font-size: 20px;
+}
   
+.signin-submit-button:hover {
+    background-color: #401D18; /* Change color on hover if needed */
+}
+
+.signup-link-button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px auto;
+    background-color: #D9D7BF;
+    color: #614D42;
+    border: 3px solid #614D42;
+    border-radius: 30px;
+    font-family: 'Roboto Serif', serif;
+    font-weight: 500;    
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.signup-link-button:hover {
+    background-color: #BEBDA6; /* Change color on hover if needed */
+}
+
+.separator-signin {
+    flex-grow: 1;
+    border: none;
+    border-top: 1px solid #614D42; /* Color of the separator line */
+    margin: 10px; /* Adjust margin as needed */
+}
+
+.sign-up-link{
+    display: flex;
+    text-align: center;
+    font-family: 'Roboto Serif', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #614D42;
+}
+
+.bold-er{
+    font-weight: 500;
+}
+
+.bold-more{
+    font-weight: 600;
+}
+
+.search-input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+.search-button {
+    padding: 8px 12px;
+    border: 1px solid #007bff;
+    border-radius: 3px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Styles for the header left section */
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+/* Styles for the header right section */
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+/* Styles for the search input */
+.search-input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+/* Styles for the search button */
+.search-button {
+    padding: 8px 12px;
+    border: 1px solid #007bff;
+    border-radius: 3px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Styles for header buttons (Home and Shelves) */
+.header-button {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    background-color: transparent;
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.header-button:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+/* Styles for button icons */
+.button-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+/* Styles for profile picture */
+.profile-container {
+    margin-left: 10px;
+}
+
+.profile-picture {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
