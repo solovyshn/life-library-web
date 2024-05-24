@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import '../styles.css'; 
 import axios from 'axios';
 import Header from './header.js';
+import {useNavigate} from 'react-router-dom';
 
 const LogIn = () => {
+  const navigate = useNavigate();
   const [yourPassword, setYourPassword] = useState('');
   const [yourEmail, setYourEmail] = useState('');
   const [errors, setErrors] = useState({});
@@ -20,6 +22,10 @@ const LogIn = () => {
               break;
       }
   };
+
+  const handleRedirectToSignup = (e) => {
+    navigate('/signup');
+  }
   
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,11 +33,14 @@ const LogIn = () => {
     const newErrors = {};
     if (!yourEmail ) {
       newErrors.yourEmail = 'Please enter email address.';
+      setErrors(newErrors);  
+      return;
     }
     if (!yourPassword ) {
       newErrors.password = 'Please enter password';
+      setErrors(newErrors);  
+        return;
     }
-    setErrors(newErrors);  
     if(Object.keys(errors).length > 0){
       return;
     }
@@ -39,8 +48,6 @@ const LogIn = () => {
       yourPassword,
       yourEmail
     };
-    console.log(formData);
-
     try {
         const response = await fetch('http://localhost:5000/login', {
             method: 'POST',
@@ -50,21 +57,33 @@ const LogIn = () => {
         const data = await response.json();
         const newErrors = {};
         if (!response.ok) {
-            // Handle non-successful response (HTTP error)
             if (response.status === 404) {
                 newErrors.yourEmail = 'User with this email doesn\'t exist';
+                setErrors(newErrors);
+                console.log(data);
+                return;
             } else if (response.status === 401) {
                 newErrors.password = 'Incorrect password';
+                setErrors(newErrors);
+                console.log(data);
+                return;
             } 
             else if (response.status === 400) {
                 newErrors.yourEmail = 'Type in information';
+                setErrors(newErrors);
+                console.log(data);
+                return;
             }
             else {
                 newErrors.yourEmail('Error occurred');
+                return;
             }
-        }
-        setErrors(newErrors);
-        console.log(data);  // Handle response (e.g., show message to user)
+        }   
+        let accesstoken = data['access_token'];
+        let userID = data['id'];
+        localStorage.setItem('access_token', accesstoken);
+        localStorage.setItem('userid', userID);
+        navigate(`/account/${userID}`);    
     } catch (error) {
         console.error('Error:', error);
     }
@@ -97,7 +116,7 @@ const LogIn = () => {
                 <span className="separator-text">New to <span className="bold-er">Life's</span> <span className="bold-more">Library</span>?</span>
                 <hr className="separator-signin" />
             </div>
-            <button className="signup-link-button">
+            <button className="signup-link-button" onClick={handleRedirectToSignup}>
                 Sign up
             </button>
         </form>

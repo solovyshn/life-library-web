@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect  } from 'react';
 import '../styles.css'; 
-import citiesData from './regions.js'; // Import the cities data
 import axios from 'axios';
 import Header from './header.js';
+import { Link } from "react-router-dom";
 
 const CreateAccount = () => {
   const [yourName, setName] = useState('');
@@ -11,7 +11,22 @@ const CreateAccount = () => {
   const [repassword, setRepassword] = useState('');
   const [birthday, setBirthday] = useState('');
   const [region, setRegion] = useState('');
+  const [accountType, setAccountType] = useState('');
   const [errors, setErrors] = useState({});
+  const [isPublic, setIsPublic] = useState(false);
+  const [regions, setRegions] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:5000/regions')
+      .then(response => response.json())
+      .then(data => setRegions(data))
+      .catch(error => console.error('Error fetching regions:', error));
+  }, []);
+
+
+  const handleCheckboxChange = () => {
+      setIsPublic(!isPublic);
+  };
 
   const handleInputChange = (e) => {
       switch (e.target.id) {
@@ -32,6 +47,9 @@ const CreateAccount = () => {
               break;
           case 'region':
               setRegion(e.target.value);
+              break;
+          case 'accountType':
+              setAccountType(e.target.value);
               break;
           default:
               break;
@@ -70,12 +88,21 @@ const CreateAccount = () => {
     if(Object.keys(errors).length > 0){
       return;
     }
+    let LibraryType = true
+    if(accountType==="Owner"){
+      LibraryType = false
+    }
+    if(isPublic === true){
+      console.log("yes")
+    }
     const formData = {
       yourName,
       yourPassword,
       yourEmail,
       birthday,
-      region
+      region,
+      LibraryType,
+      isPublic
     };
     console.log(formData);
     try {
@@ -121,20 +148,34 @@ const CreateAccount = () => {
             <div className="form-group">
               <label htmlFor="region" className="field-label">Region</label>
               <select id="region" className="form-control" value={region} onChange={handleInputChange}>
-                <option value="">Select region</option>
-                {citiesData.map(city => (
-                  <option key={city.id} value={city.name}>{city.name}</option>
-                ))}
+                  <option value="">Select region</option>
+                  {regions.map(region => (
+                    <option key={region.id} value={region.id}>{region.name}</option>
+                  ))}
               </select>
               {errors.region && <p className="error-message">{errors.region}</p>}
             </div>
+            <div className="form-group">
+              <label htmlFor="accountType" className="field-label">Type of account</label>
+              <select id="accountType" className="form-control" value={accountType} onChange={handleInputChange}>
+                <option key="Owner" value="Owner">Owner</option>
+                <option key="Library" value="Library">Library</option>
+              </select>
+              {errors.accountType && <p className="error-message">{errors.accountType}</p>}
+            </div>
+            <div>
+              <label className="checkbox-label">
+                <input type="checkbox" checked={isPublic} onChange={handleCheckboxChange} />
+                I agree to make my account public and be able to see the libraries of other users.              </label>
+            </div>
+
           </div>
             <button type="submit" className="create-submit-button">
               Sign up
             </button>
             <div className="sign-in-link">
               <hr className="separator" />
-              <span className="separator-text">Already have an account? <a href="https://example.com" className="sign-in-text">Sign in</a></span>
+              <span className="separator-text">Already have an account? <Link to="/login" className="sign-in-text">Sign in</Link></span>
               <hr className="separator" />
             </div>
         </form>
