@@ -15,6 +15,7 @@ body {
     padding-left: 80px; 
     width: 100%;
     position: fixed;
+    z-index: 1000;
 }
 
 .container {
@@ -383,7 +384,7 @@ body {
 }
 
 .info-row {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .info-type {
@@ -655,7 +656,7 @@ body {
     height: 100px;
 }
   
-.book-title-author, .book-genre, .book-date, .book-more-info, .book-shelf-cover, .book-owners {
+.book-title-author, .book-genre, .book-date, .book-more-info, .book-username, .book-shelf-cover, .book-owners {
     flex: 1;
     text-align: center;
     width: 20%;
@@ -689,13 +690,21 @@ body {
     cursor: pointer;
 }
   
-.book-more-info {
+.book-more-info-text {
     font-family: 'Roboto Condensed';
     font-size: 16px;
     color: #614D42;
     cursor: pointer;
     text-decoration: underline;
-    padding-right: 30px;
+    padding-right: 20px;
+}
+
+.book-username{
+    font-family: 'Roboto Condensed';
+    font-size: 16px;
+    color: #614D42;
+    cursor: pointer;
+    text-decoration: underline;
 }
   
 .book-cover-big {
@@ -739,7 +748,6 @@ body {
     font-size: 16px;
     font-weight: 500;
     margin-left: 5%;
-
 }
 
 .title-author-info > .separator {
@@ -815,6 +823,7 @@ body {
     color: #614D42;
     text-align: justify;
     margin-top: 0;
+    margin-left: 50px;
 }
 
 .recommendations-container {
@@ -859,4 +868,139 @@ body {
     margin: auto ;
     text-decoration: underline;
     cursor: pointer;
+}
+
+.average-rating {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    margin: 20px;
+    margin-left: 50px;
+}
+
+.average-rating-value {
+    font-family: 'Roboto Serif', serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 10px;
+}
+
+.rating-count {
+    font-family: 'Roboto Flex';
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 10px;
+}
+
+.user-rating {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    font-family: 'Roboto Serif', serif;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.rating {
+    flex: 1;
+    text-align: center;
+    width: 20%;
+    margin:auto;    
+}
+
+.sort-icon {
+    height: 13px;
+    filter: invert(18%) sepia(9%) saturate(6513%) hue-rotate(329deg) brightness(95%) contrast(82%);
+    cursor: pointer;
+}
+
+.delete-icon {
+    height: 40px;
+    filter: invert(18%) sepia(9%) saturate(6513%) hue-rotate(329deg) brightness(95%) contrast(82%);
+    cursor: pointer;
+}
+.reviews-section {
+    margin-bottom: 100px;
+}
+.reviews-section > .separator {
+    margin: 0px;
+    width: auto;
+}
+
+.reviews-section > h2 {
+    text-align:center;
+    font-family: 'Roboto Serif', serif;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.comment {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    padding-left: 30px;
+    background-color: transparent;
+    font-family: 'Roboto Serif', serif;
+    font-size: 18px;
+    text-align: left;
+}
+
+.comment-username {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+};
+
+.comment-review {
+    font-size: 14px;
+    color: #555;
+}
+
+.comment-update-date {
+    font-size: 16px;
+    color: #888;
+    margin-bottom: 5px;
+    text-align: right;
+}
+
+  
+.comment-text {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+
+  }
+  
+.save-comment {
+    width: 250px;
+    border-radius: 30px;
+    height: 40px;
+    border-width: 3px;
+    background-color: #D9D7BF;
+    border-color: rgba(97, 77, 66, 0.75);
+    font-family: 'Roboto Serif', serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #614D42;
+    cursor: pointer;
+}
+
+.comment-section {
+    padding: 10px;
+    background-color: transparent;
+    margin-bottom: 100px;
 }

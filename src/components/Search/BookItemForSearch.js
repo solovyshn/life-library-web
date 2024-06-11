@@ -8,6 +8,18 @@ function BookItemForSearch({ book }) {
       localStorage.setItem('ISBN', book.ISBN);
     }
 
+    const goToElseAccountPage = async (userID) => {
+      if (userID !== null) {
+        localStorage.setItem('elseUserID', userID);
+        navigate(`/otheraccount/${userID}`);
+      } else {
+        // Handle the case where userID is null, if necessary
+        console.log('UserID is null');
+      }
+    }
+  
+  
+
     return (
       <div className="bookitem">
         <div className="book-info">
@@ -22,13 +34,13 @@ function BookItemForSearch({ book }) {
           <div className="book-owners">
             {book.users && book.users.length > 0 ? (
                 book.users.map((owner, index) => (
-                    <p key={index} className="owner-name">{owner.name}</p>
+                    <p key={index} onClick={() => goToElseAccountPage(owner.user_id)} className="owner-name">{owner.name}</p>
                 ))
             ) : (
                 <p className="no-owner">No one from your region has this book</p>
             )}
         </div>
-          <div className="book-more-info" onClick={() => goToBookPage(book)}>See more info</div>
+          <div className="book-more-info" onClick={() => goToBookPage(book)}><span className="book-more-info-text">See more info</span></div>
         </div>
       </div>
     );

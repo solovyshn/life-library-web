@@ -67,7 +67,7 @@ const HeaderLogged = () => {
             </div>
             <div className="header-right">
                 <div className='header-button' onClick={goToShelvesPage}>
-                    <img src={shelvesIcon} alt='Shelves' className='shelves-icon'></img> {/*add onClick */}
+                    <img src={shelvesIcon} alt='Shelves' className='shelves-icon'></img>
                     <h2 className='button-title'>Shelves</h2>
                 </div>
                 <div className="header-button">
